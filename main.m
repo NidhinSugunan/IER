@@ -118,8 +118,8 @@ for k =1:T
     [A,b] = constraintgen(dime, predmode, x0hat);
     
     % Compute optimal ss (online, at every iteration)
-    eqconstraints = eqconstraintsgen(LTI,dim,dhat);
-    [xr,urKe] = optimalss(LTI,dim,weight,[],eqconstraints); 
+    eqconstraints = eqconstraintsgen(LTI,dim,dhat); % calling contraints from eqconstraintsgen
+    [xr,urKe] = optimalss(LTI,dim,weight,[],eqconstraints); % Optimal Target Selection
     xrKe = [xr; dhat];
     
     uostar = sdpvar(dime.nu*dime.N,1);                             % define optimization variable
@@ -203,27 +203,27 @@ t12 = Ts*(0:1:T);
 figure
     tiledlayout(2,1)
     nexttile
-    plot(iplqr)
+    plot(iplqr,'--')
     hold on
-    plot(ippid)
+    plot(ippid,'.')
     hold on
-    plot(t11,ue)
+    plot(t11,ue,'b')
     xlim([0 4000])
-    title('\textbf{Performance comparison of PID and MPC}', 'interpreter','latex')
-    xlabel('$t$[sec]','interpreter','latex')
-    ylabel('Input [$mg/kg/h$]','interpreter','latex')
+    title('\textbf{Performance comparison of controllers}', 'interpreter','latex')
+    xlabel('time (s)','interpreter','latex')
+    ylabel('Input (mg/kg/h)','interpreter','latex')
     legend({'$u_{LQR}$','$u_{PID}$','$u_{MPC}$'},'interpreter','latex');
     nexttile
     xlim([0 4000])
-    plot(oplqr,'m')
+    plot(oplqr,'--')
     hold on
-    plot(oppid,'g')
+    plot(oppid,'.')
     hold on
     plot(t12,ye,'b')
     hold on
-    plot(t12,yref,'--r')
+    plot(t12,yref,'+')
     xlim([0 5259])
     legend({'$y_{LQR}$','$y_{PID}$','$y_{MPC}$','$y_{ref}$'},'interpreter','latex');
-    xlabel('$t$[sec]','interpreter','latex')
-    ylabel('Output [$\mu g/mL$]','interpreter','latex')
+    xlabel('time (s)','interpreter','latex')
+    ylabel('Output ($\mu$g/mL)','interpreter','latex')
     
