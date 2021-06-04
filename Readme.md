@@ -2,10 +2,10 @@
 ## Installation
 The MATLAB toolbox YALMIP is introduced. It is described how YALMIP is be used to model and solve optimization problems for the MPC.
 
-Installation of YALMIP can be done using the YALMIP.m file. Please paste the directory path where the installation must be done in the file
+Installation of YALMIP can be done using the YALMIP.m file. Please paste the directory path where the installation must be done in the file for eg:
 
 ```sh
-cd ('enter the path to install');
+cd ('C:\Users\Nidhin\Desktop\New folder');
 ```
 
 ## Execution
