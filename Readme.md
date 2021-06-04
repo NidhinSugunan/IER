@@ -12,7 +12,7 @@ cd ('enter the path to install');
 The design of MPC is done in main.m file and the LQR and PID is executed in the simulink file PIDnLQR. For the ease of the user the simulink file is called in main.m file. Therefore, the user need to only run the main.m file to reproduce the results. 
 
 ## Funtions
-1. constraintgen file: 
+1. constraintgen file: Constraints of the optimisation problem is defined in this file.
 
 2. predmodgen file: This file contains the functions related to the state prediction equation.
 
